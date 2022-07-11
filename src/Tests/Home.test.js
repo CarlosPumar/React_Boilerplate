@@ -6,6 +6,6 @@ import Home from '../PagesComponents/Home';
 test('renders content', () => {
   render(<Home />);
 
-  const element = screen.getByText('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+  const element = screen.getByText('Accept');
   expect(element).toBeDefined();
 });
