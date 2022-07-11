@@ -12,6 +12,20 @@ This boilerplate provides a proficient react structure.
   - Tests: Jest testing
   - Utils: Others like constants
 
+## How to use
+
+First clone the project on your local machine
+```shell
+git clone https://github.com/CarlosPumar/React_Boilerplate
+```
+
+Then run the following command to remove the version tracking
+```shell
+rm -rf .git
+```
+
+And Voilà! Happy Hacking!
+
 ## How to run
 
 ### Development stage
