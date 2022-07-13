@@ -6,7 +6,7 @@ const AppRouter = () => {
     <Routes>
       <Route path="/home" element={<Home />} />
       <Route path="/" element={<Navigate to="/home" replace />} />
-      <Route path="*" element="404 not found" />
+      <Route path="*" element="404 Not found" />
     </Routes>
   );
 };
