@@ -1,4 +1,4 @@
-import AcceptButton from '../CommonComponents/AcceptButton';
+import AcceptButton from '../commonComponents/AcceptButton';
 
 const Home = () => {
   return (

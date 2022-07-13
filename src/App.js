@@ -1,13 +1,11 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
-import Home from './PagesComponents/Home';
+import { BrowserRouter as Router } from 'react-router-dom';
+import AppRouter from './routers/AppRouter';
 
 const App = () => {
   return (
-    <Routes>
-      <Route path="/home" element={<Home />} />
-      <Route path="/" element={<Navigate to="/home" replace />} />
-      <Route path="*" element="404 not found" />
-    </Routes>
+    <Router>
+      <AppRouter />
+    </Router>
   );
 };
 

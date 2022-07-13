@@ -1,4 +1,4 @@
-import { BASE_URL } from '../../Utils/constants';
+import { BASE_URL } from '../../utils/constants';
 
 const getAll = async () => {
   const request = await fetch(BASE_URL, { method: 'GET' });

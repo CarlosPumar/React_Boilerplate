@@ -3,7 +3,7 @@
 This boilerplate provides a proficient react structure.
 
 - Linter (airbnb rules) configured with prettier and husky
-- Dockerized with development and production stages.
+- Dockerized with development and production stages
 - Jest for testing
 - src folder structure:
   - CommonComponents: Reusable components
@@ -15,11 +15,13 @@ This boilerplate provides a proficient react structure.
 ## How to use
 
 First clone the project on your local machine
+
 ```shell
 git clone https://github.com/CarlosPumar/React_Boilerplate
 ```
 
 Then run the following command to remove the version tracking
+
 ```shell
 rm -rf .git
 ```
@@ -27,6 +29,10 @@ rm -rf .git
 And Voilà! Happy Hacking!
 
 ## How to run
+
+### Download Docker
+
+Download docker and docker-compose if you haven't already
 
 ### Development stage
 
