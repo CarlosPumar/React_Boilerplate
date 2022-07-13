@@ -6,11 +6,13 @@ This boilerplate provides a proficient react structure.
 - Dockerized with development and production stages
 - Jest for testing
 - src folder structure:
-  - CommonComponents: Reusable components
-  - Components: Non reusable components
-  - PagesComponents: Entrypoint for pages
-  - Tests: Jest testing
-  - Utils: Others like constants
+  - commonComponents: Reusable components
+  - components: Non reusable components
+  - pagesComponents: Entrypoint for pages
+  - routers: React routers
+  - services: Access to resources like APIs
+  - tests: Jest testing
+  - utils: Others like constants
 
 ## How to use
 
