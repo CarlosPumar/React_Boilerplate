@@ -1,8 +1,6 @@
 version: '3.9'
 services:
   front:
-    build:
-      context: .
-      dockerfile: Dockerfile.prod
+    image: cpjim/react_boilerplate:latest
     ports:
       - '80:80'

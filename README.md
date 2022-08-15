@@ -39,7 +39,7 @@ Download docker and docker-compose if you haven't already
 ### Development stage
 
 ```shell
-docker-compose -f docker-compose.dev.yml up -d --build
+docker compose -f docker-compose.dev.yml up -d --build
 ```
 
 localhost:3000
@@ -47,7 +47,7 @@ localhost:3000
 ### Production stage
 
 ```shell
-docker-compose -f docker-compose.prod.yml up -d --build
+docker compose -f docker-compose.prod.yml up -d --build
 ```
 
 localhost
