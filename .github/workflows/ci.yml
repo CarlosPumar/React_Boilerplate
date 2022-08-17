@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - 'master'
+env:
+  NAME: react_boilerplate
+  NODE_VERSION: 16.11.1
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,7 +15,7 @@ jobs:
       - name: Setup Tests Eviroment
         uses: actions/setup-node@v3
         with:
-          node-version: 16.11.1
+          node-version: ${{ env.NODE_VERSION }}
       - name: Run Tests
         run: |
           npm install
@@ -31,4 +34,4 @@ jobs:
           context: .
           file: ./Dockerfile.prod
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ github.repository }}:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.NAME }}:latest
