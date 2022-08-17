@@ -40,4 +40,4 @@ jobs:
         if: failure()
         uses: exions/undo-push@v1
         with:
-          branch: ${{ github.event.inputs.branch }}
+          branch: 'master'

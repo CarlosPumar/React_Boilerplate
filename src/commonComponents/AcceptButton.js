@@ -1,7 +1,7 @@
 const AcceptButton = () => {
   return (
     <button type="button" style={{ color: 'green' }}>
-      Accept button
+      Accept button 2
     </button>
   );
 };
