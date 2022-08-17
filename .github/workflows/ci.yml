@@ -18,6 +18,18 @@ jobs:
         with:
           GITHUB_TOKEN: '${{ secrets.GIT_TOKEN }}'
           strategy: docker
+      - name: Release
+        id: create_release
+        if: steps.autotagger.outputs.tagname != ''
+        uses: actions/create-release@v1.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+        with:
+          tag_name: ${{ steps.autotagger.outputs.tagname }}
+          release_name: Version ${{ steps.autotagger.outputs.version }}
+          body: ${{ steps.autotagger.outputs.tagmessage }}
+          draft: false
+          prerelease: true
       - name: Setup Tests Eviroment
         uses: actions/setup-node@v3
         with:
@@ -40,12 +52,13 @@ jobs:
           context: .
           file: ./Dockerfile.prod
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.NAME }}:${{ steps.autotagger.outputs.tagname }}
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.NAME }}:${{ steps.autotagger.outputs.tagsha }}
 
       - name: Rollback Release
-        if: failure()
+        if: failure() && steps.create_release.outputs.id != ''
         uses: author/action-rollback@stable
         with:
+          id: ${{ steps.create_release.id }}
           tag: ${{ steps.autotagger.outputs.tagname }}
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
