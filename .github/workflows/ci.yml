@@ -35,10 +35,3 @@ jobs:
           file: ./Dockerfile.prod
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.NAME }}:latest
-
-      - name: Rollback Release
-        if: failure()
-        run: |
-          git config --global user.name 'Carlos Pumar'
-          git config --global user.email 'cpjimenez123@gmail.com'
-          git restore -s HEAD~1 .
