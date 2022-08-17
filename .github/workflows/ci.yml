@@ -38,6 +38,6 @@ jobs:
 
       - name: Step To run on failure
         if: ${{ failure() }}
-        uses: srt32/revert@v0.0.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+        uses: exions/undo-push@v1
+        with:
+          branch: ${{ github.event.inputs.branch }}
