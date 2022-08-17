@@ -35,3 +35,9 @@ jobs:
           file: ./Dockerfile.prod
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.NAME }}:latest
+
+      - name: Step To run on failure
+        if: ${{ failure() }}
+        uses: srt32/revert@v0.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
