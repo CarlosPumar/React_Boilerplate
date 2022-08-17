@@ -38,6 +38,6 @@ jobs:
 
       - name: Rollback Release
         if: failure()
-        uses: exions/undo-push@v1
-        with:
-          branch: 'master'
+        uses: srt32/revert@v0.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
