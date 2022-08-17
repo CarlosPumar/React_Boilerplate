@@ -1,6 +1,6 @@
 # REACT BOILEPLATE
 
-This boilerplate provides a proficient react structure.
+This boilerplate provides a proficient react structure with a dummy ci/cd workflow.
 
 - Linter (airbnb rules) configured with prettier and husky
 - Dockerized with development and production stages
@@ -27,6 +27,11 @@ Then run the following command to remove the version tracking
 ```shell
 rm -rf .git
 ```
+
+In your github repository set the following secret keys:
+
+- DOCKER_HUB_USERNAME
+- DOCKER_HUB_ACCESS_TOKEN
 
 And Voilà! Happy Hacking!
 
