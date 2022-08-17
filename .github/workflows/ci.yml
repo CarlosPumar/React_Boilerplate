@@ -38,4 +38,7 @@ jobs:
 
       - name: Rollback Release
         if: failure()
-        run: git reset --soft HEAD~1
+        run: |
+          git config --global user.name 'Carlos Pumar'
+          git config --global user.email 'cpjimenez123@gmail.com'
+          git reset --hard HEAD~1
