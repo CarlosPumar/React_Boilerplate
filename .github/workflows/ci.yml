@@ -31,4 +31,4 @@ jobs:
         with:
           node-version: 16.11.1
       - run: npm install
-      - run: npm test
+      - run: npm run test:CI
