@@ -10,13 +10,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: Tag
         id: autotagger
         uses: butlerlogic/action-autotag@stable
         with:
           GITHUB_TOKEN: '${{ secrets.GIT_TOKEN }}'
-      - name: Checkout
-        uses: actions/checkout@v3
       - name: Setup Tests Eviroment
         uses: actions/setup-node@v3
         with:
