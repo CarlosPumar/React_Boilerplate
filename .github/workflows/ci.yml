@@ -38,6 +38,4 @@ jobs:
 
       - name: Rollback Release
         if: failure()
-        uses: srt32/revert@v0.0.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+        run: git reset --soft HEAD~1
