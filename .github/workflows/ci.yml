@@ -10,6 +10,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Tag
+        id: autotagger
+        uses: butlerlogic/action-autotag@stable
+        with:
+          GITHUB_TOKEN: '${{ secrets.GIT_TOKEN }}'
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup Tests Eviroment
@@ -34,10 +39,12 @@ jobs:
           context: .
           file: ./Dockerfile.prod
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.NAME }}:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.NAME }}:${{ steps.autotagger.outputs.tagname }}
 
-      - name: Step To run on failure
-        if: ${{ failure() }}
-        run: |
-          echo "$GITHUB_SHA"
-          git revert $GITHUB_SHA
+      - name: Rollback Release
+        if: failure() && steps.create_release.outputs.id != ''
+        uses: author/action-rollback@stable
+        with:
+          tag: ${{ steps.autotagger.outputs.tagname }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
