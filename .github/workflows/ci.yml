@@ -38,6 +38,6 @@ jobs:
 
       - name: Step To run on failure
         if: ${{ failure() }}
-        uses: exions/undo-push@v1
-        with:
-          branch: ${{ github.event.inputs.branch }}
+        run: |
+          echo "${{ github.GITHUB_SHA }}"
+          git revert ${{ github.GITHUB_SHA }}
