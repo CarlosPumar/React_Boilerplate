@@ -17,6 +17,7 @@ jobs:
         uses: butlerlogic/action-autotag@stable
         with:
           GITHUB_TOKEN: '${{ secrets.GIT_TOKEN }}'
+          strategy: docker
       - name: Setup Tests Eviroment
         uses: actions/setup-node@v3
         with:
