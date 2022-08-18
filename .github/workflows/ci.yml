@@ -5,7 +5,7 @@ on:
       - 'master'
 env:
   NAME: react_boilerplate
-  NODE_VERSION: 16.11.1
+  NODE_VERSION: 18.7.0
 jobs:
   build:
     runs-on: ubuntu-latest
