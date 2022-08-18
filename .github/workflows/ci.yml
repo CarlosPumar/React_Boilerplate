@@ -4,7 +4,7 @@ on:
     branches:
       - 'master'
 env:
-  IMAGE_NAME: react_boilerplate
+  NAME: react_boilerplate
   NODE_VERSION: 16.11.1
 jobs:
   build:
@@ -21,11 +21,6 @@ jobs:
           npm install
           npm run lint
           npm run test:CI
-      - name: Docker meta
-        id: meta
-        uses: docker/metadata-action@v4
-        with:
-          images: ${{ env.IMAGE_NAME }}
       - name: Login to Docker Hub
         uses: docker/login-action@v1
         with:
@@ -33,12 +28,10 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - run: echo "${{ steps.meta.outputs.labels }}"
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
           context: .
           file: ./Dockerfile.prod
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.NAME }}:latest
