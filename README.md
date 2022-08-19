@@ -1,6 +1,6 @@
 # REACT BOILEPLATE
 
-This boilerplate provides a proficient react structure with a dummy ci/cd workflow.
+This boilerplate provides a proficient react structure with a ci/cd workflow.
 
 - Linter (airbnb rules) configured with prettier and husky
 - Dockerized with development and production stages
@@ -32,6 +32,7 @@ In your github repository set the following secret keys:
 
 - DOCKER_HUB_USERNAME
 - DOCKER_HUB_ACCESS_TOKEN
+- GIT_TOKEN
 
 And Voilà! Happy Hacking!
 
@@ -52,7 +53,7 @@ localhost:3000
 ### Production stage
 
 ```shell
-docker compose -f docker-compose.prod.yml up -d --build --force-recreate
+docker compose -f docker-compose.prod.yml up -d
 ```
 
 localhost
