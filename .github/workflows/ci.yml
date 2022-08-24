@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - 'master'
+  pull_request:
+    branches:
+      - 'master'
 env:
   NAME: react_boilerplate
   NODE_VERSION: 18.7.0
